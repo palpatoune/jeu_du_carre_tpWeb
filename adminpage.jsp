@@ -15,6 +15,26 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <!-- CREATION SESSION ADMIN -->
+        <!-- depuis une servlet ??? 
+        
+        couple de méthodes setAttribute() / getAttribute(), 
+        permettant la mise en place d'objets au sein de la session 
+        et leur récupération, tout comme dans l'objet HttpServletRequest
+        -->
+        <%
+        /* Création ou récupération de la session */
+        HttpSession sessionJ = request.getSession();
+
+        /* Mise en session d'une chaîne de caractères */
+        String test = "admin";
+        sessionJ.setAttribute( "people", test );
+
+        /* Récupération de l'objet depuis la session */
+        String chaine = (String) sessionJ.getAttribute( "people" );
+        %>
+        
+        <!-- CONNEXION A LA BASE DE DONNEES -->
         <%
         Connection conn=null;
         Statement stmt=null;
