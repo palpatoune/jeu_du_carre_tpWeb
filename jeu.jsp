@@ -1,5 +1,3 @@
-
-
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -47,7 +45,7 @@ try {
             <img src="image/des.gif" alt="des" >
             <form action="jeu.jsp" methode="post">
               
-                <input type="submit" value="Lancer la partie" name="bouton" style="margin-left: 10px;">
+                <input type="submit" value="Lancer les 5 parties" name="bouton" style="margin-left: 10px;">
             </form>
     </div>
     On lance 5 parties<br>
@@ -56,10 +54,9 @@ try {
            //jdbc:mysql://localhost:3306/g11;
         
 String url = "jdbc:mysql://localhost:3306/g11";
-String utilisateur = "root";
-String motDePasse = "";
+String utilisateur = "g11";
+String motDePasse = "g11";
 Connection connexion = null;
-
    
          %>                    
             <%="Vous Partez du point A et devez arriver au point C bonne chance."%><br><%
@@ -88,18 +85,14 @@ Connection connexion = null;
                             i+=1;
                         }
                     }
-
                 }
         if(nombreTry <20){
-                
             %>      
-                
-                    <%="On est arrivé au point C en moins de 21 coups !"%><br><%
-                }
-                else{
-                    
-                    %><%="Nombre de tentative supérieure à 20 vous avez perdu!"%><br><%
-                }
+            <%="On est arrivé au point C en moins de 21 coups !"%><br><%
+        }
+        else{
+            %><%="FAIL ! Nombre de tentative supérieure à 20 vous avez perdu!"%><br><%
+        }
                 
 try {
    connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
@@ -113,6 +106,8 @@ try {
         int colonne2;
  %>
 <br><br>
+
+<p>Affichage de mes parties :</p>
 <table border="1">
     <tr>
         <th>Nombre de coups</th>
@@ -120,12 +115,9 @@ try {
     </tr>
  
  <%
-
-
 while(resultat.next()){
  colonne1=resultat.getInt(1);
  colonne2=resultat.getInt(2);
-
  %>
  <tr>
      <td><%=colonne1%></td>
@@ -133,7 +125,6 @@ while(resultat.next()){
  </tr>                    
                         
 <% 
-
 }
    
    
@@ -148,7 +139,6 @@ while(resultat.next()){
         } catch ( SQLException ignore ) {
             %><%="marche pas2"%><br><%
         }
-
 }
   
                i =0;
@@ -157,7 +147,6 @@ while(resultat.next()){
                 
                 
                
-
 nombrePartie +=1 ;
 if (nombrePartie==4){
     finit=true;

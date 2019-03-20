@@ -20,9 +20,10 @@
         <h1>Calcul moyenne et écart type</h1>
         
     <%  
+    //http://192.168.3.152/phpmyadmin
     String url = "jdbc:mysql://localhost:3306/g11";
-    String utilisateur = "root";
-    String motDePasse = "";
+    String utilisateur = "g11";
+    String motDePasse = "g11";
     Connection connexion = null;
    
     
@@ -39,34 +40,25 @@
     <fieldset>
         <legend>Vos moyennes</legend>
 
-    <%
-           /* CALCUL MOYENNE */
-    int moyenne = 0;
-    int esperance = 0;
-    int variance = 0;
-    int ecartype = 0;
-    int indice = 0;
+        <%
+        /* CALCUL MOYENNE */
+        int moyenne = 0;
+        int esperance = 0;
+        int variance = 0;
+        int ecartype = 0;
+        int indice = 0;
 
-    if(resultat.first()!=false){
-        while (resultat.next()) {
-            moyenne += resultat.getInt(1);
-            indice++;
+        if(resultat.first()!=false){
+            while (resultat.next()) {
+                moyenne += resultat.getInt(1);
+                indice++;
+            }
+            moyenne = moyenne/indice;
         }
-        moyenne = moyenne/indice;
-    }
-    %>
-    <p><%=moyenne%></p>
+        %>
+        <p><%=moyenne%></p>
     </fieldset>
-
-
 <%
-/* CALCUL ECART TYPE */
-
-    esperance = (noteTP/60.0)+(noteDS/60.0)+(noteTD/60.0);
-    variance = pow((noteTP - esperance), 2.0)/60.0+pow((noteDS - esperance), 2.0)/60.0+pow((noteTD - esperance), 2.0)/60.0;
-    ecartype = sqrt(variance);
-
-
     } catch ( SQLException e ) {
         %><%="marche pas1"%><br><%
     } finally {
