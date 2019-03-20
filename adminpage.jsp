@@ -52,12 +52,18 @@
         %>
         
         <h1>Bienvenue à vous, admin !</h1>
-        Actions possible :<br>
         
-        <a href="calcul_stat.jsp">Afficher les statistiques des parties du user</a><br>
-        <a href="calcul_moy_ecarttype.jsp">Calcul de la moyenne et l'écart-type des parties du user</a><br>
+        <fieldset>
+            <legend>Actions possible :</legend>
+            <a href="calcul_stat.jsp">Afficher les statistiques des parties du user</a><br>
+            <a href="calcul_moy_ecarttype.jsp">Calcul de la moyenne et l'écart-type des parties du user</a><br>
+        </fieldset>
         
-        <p><a href="deco.jsp">DECONNEXION</a></p>
+        <fieldset>
+            <legend>Déconnexion</legend>
+        
+            <p><a href="index.html">Se déconnecter ici</a></p>
+        </fieldset>
     </body>
     
     

@@ -18,7 +18,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-    <center><h1>Bienvenu dans le jeu du carré</h1></center>
+    <center><h1>Bienvenue dans le jeu du carré</h1></center>
     <br>
     <form action="jeu.jsp">
         <center><input type="submit" value="jouer" > 

@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>DECONNEXION</h1>
+        <%=response.sendRedirect("index.html")%>
     </body>
 </html>
